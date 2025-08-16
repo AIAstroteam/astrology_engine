@@ -39,23 +39,3 @@ def get_d9_navamsa(planet_signs):
         d9_sign = const.zodiacSigns[d9_index]
         d9_chart[planet] = d9_sign
     return d9_chart
-
-d2_chart = {}
-for planet, pos in helpers.extractPlanetDegree.items():
-    d2_chart[planet] = get_d2_hora_sign(pos)
-
-# Print the D2 (Hora) chart
-print("📜 D2 (Hora) Chart:")
-for planet, hora_sign in d2_chart.items():
-    print(f"{planet:8} → {hora_sign}")
-
-# Step 1: Get (sign, degree in sign)
-planet_signs = helpers.reverse_reference_degrees(helpers.extractPlanetDegree())
-
-# Step 2: Compute D9 Navamsa chart
-d9_result = get_d9_navamsa(planet_signs)
-
-# Step 3: Print D9 Chart
-print("🧭 D9 Navamsa Chart:")
-for planet, d9_sign in d9_result.items():
-    print(f"{planet}: {d9_sign}")

@@ -14,20 +14,21 @@ def getLagnaAndPlanetHouses(julianDay, latitude, longitude):
 
     # --- Map house numbers to zodiac signs (starting from Lagna) ---
     houseSigns = [const.zodiacSigns[(lagnaSignIndex + i) % 12] for i in range(12)]
+    houseSignsIndex = [(lagnaSignIndex + i) % 12 for i in range(12)]
 
     # --- Assign planets to houses (Whole Sign System) ---
     planetHouses = {}
     for name, degree in planetDegrees.items():
         planetSign = int(degree // 30)
         house = ((planetSign - lagnaSignIndex) % 12) + 1
-        sign = houseSigns[house - 1]
+        sign =  12 if houseSignsIndex[house] == 0 else houseSignsIndex[house]
         planetHouses[name] = {
             "house": house,
             "degree": round(degree, 6),
             "sign": sign
         }
 
-    return lagna, planetHouses
+    return lagnaSignIndex, planetHouses
 
 
 # --- Calculate sidereal degrees of planets ---

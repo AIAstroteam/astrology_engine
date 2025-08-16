@@ -53,6 +53,12 @@ signType = {
 
 oldSigns = [0, 2, 4, 6, 8, 10]
 
+signLords = {
+    1: "Mars", 2: "Venus", 3: "Mercury", 4: "Moon",
+    5: "Sun", 6: "Mercury", 7: "Venus", 8: "Mars",
+    9: "Jupiter", 10: "Saturn", 11: "Saturn", 12: "Jupiter"
+}
+
 # Calculation settings
 DEFAULT_SYSTEM = 'Tropical'  # or 'Sidereal'
 AYANAMSA = 23.85  # Lahiri Ayanamsa (degrees)
